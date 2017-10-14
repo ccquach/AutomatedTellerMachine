@@ -38,7 +38,8 @@ namespace AutomatedTellerMachine.Controllers
             }
             //return Content(serial);
             //return new HttpStatusCodeResult(403);
-            return Json(new { name = "serial", value = serial }, JsonRequestBehavior.AllowGet);
+            //return Json(new { name = "serial", value = serial }, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index");
         }
     }
 }
