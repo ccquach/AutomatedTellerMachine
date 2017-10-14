@@ -8,11 +8,13 @@ namespace AutomatedTellerMachine.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: /home/index/
         public ActionResult Index()
         {
             return View();
         }
 
+        // GET: /home/about/
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -25,6 +27,16 @@ namespace AutomatedTellerMachine.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Serial(string letterCase)
+        {
+            var serial = "ASPNETMVC5ATM1";
+            if (letterCase == "lower")
+            {
+                return Content(serial.ToLower());
+            }
+            return Content(serial);
         }
     }
 }
