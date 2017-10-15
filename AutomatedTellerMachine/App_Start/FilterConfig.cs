@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using AutomatedTellerMachine.Filters;
 
 namespace AutomatedTellerMachine
 {
@@ -8,6 +9,7 @@ namespace AutomatedTellerMachine
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new MyLoggingFilterAttribute());
         }
     }
 }
