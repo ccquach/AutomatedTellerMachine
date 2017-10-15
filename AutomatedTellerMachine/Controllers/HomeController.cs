@@ -13,6 +13,8 @@ namespace AutomatedTellerMachine.Controllers
         [MyLoggingFilter]
         public ActionResult Index()
         {
+            throw new StackOverflowException();
+
             return View();
         }
 
