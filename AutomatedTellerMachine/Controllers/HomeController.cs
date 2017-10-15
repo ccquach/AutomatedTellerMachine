@@ -31,6 +31,15 @@ namespace AutomatedTellerMachine.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Contact(string message)
+        {
+            // TODO: send message to HQ
+            ViewBag.TheMessage = "Thanks, we got your message!";
+
+            return View();
+        }
+
         public ActionResult Serial(string letterCase)
         {
             var serial = "ASPNETMVC5ATM1";
