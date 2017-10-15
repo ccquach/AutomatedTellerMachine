@@ -13,6 +13,8 @@ namespace AutomatedTellerMachine
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "Serial number",
                 url: "serial",
