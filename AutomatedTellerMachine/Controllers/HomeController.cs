@@ -41,6 +41,7 @@ namespace AutomatedTellerMachine.Controllers
             return View();
         }
 
+        [Route("serial")]
         public ActionResult Serial(string letterCase)
         {
             var serial = "ASPNETMVC5ATM1";
@@ -48,10 +49,10 @@ namespace AutomatedTellerMachine.Controllers
             {
                 return Content(serial.ToLower());
             }
-            //return Content(serial);
+            return Content(serial);
             //return new HttpStatusCodeResult(403);
             //return Json(new { name = "serial", value = serial }, JsonRequestBehavior.AllowGet);
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
         }
     }
 }

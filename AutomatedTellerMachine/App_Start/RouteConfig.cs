@@ -15,11 +15,11 @@ namespace AutomatedTellerMachine
 
             routes.MapMvcAttributeRoutes();
 
-            routes.MapRoute(
-                name: "Serial number",
-                url: "serial",
-                defaults: new { controller = "Home", action = "Serial" }
-            );
+            //routes.MapRoute(
+            //    name: "Serial number",
+            //    url: "serial",
+            //    defaults: new { controller = "Home", action = "Serial" }
+            //);
 
             routes.MapRoute(
                 name: "Default",
