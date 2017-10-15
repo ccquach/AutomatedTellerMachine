@@ -15,11 +15,12 @@ namespace AutomatedTellerMachine.Controllers
         }
 
         // GET: /home/about/
+        [ActionName("about-this-atm")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View("About");
         }
 
         // GET: /home/contact/
