@@ -31,3 +31,13 @@
 </div>
 
 You are using @Request.Browser.Browser, and that's OK! Email us at support@mvcatm.com if you have any problems. Or send us a tweet @@mvcatm.
+
+@helper formatAmount(decimal amount)
+{ 
+    var color = "green";
+    if (amount < 0)
+    {
+            color = "red";
+    }
+    <span style="color:@color">@String.Format("{0:c}", amount)</span>
+}
