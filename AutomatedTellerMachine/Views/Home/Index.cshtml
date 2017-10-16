@@ -37,7 +37,9 @@ You are using @Request.Browser.Browser, and that's OK! Email us at support@mvcat
     @foreach (decimal amount in amounts)
     {
         <li>@formatAmount(amount)</li>
-    }
+        <text>plain text</text>
+        @:plain text
+}
 </ul>
 
     @helper formatAmount(decimal amount)
