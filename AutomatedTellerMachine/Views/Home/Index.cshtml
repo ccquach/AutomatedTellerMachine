@@ -30,24 +30,26 @@
     </div>
 </div>
 
-You are using @Request.Browser.Browser, and that's OK! Email us at support@mvcatm.com if you have any problems. Or send us a tweet @@mvcatm.
+@*
+    You are using @Request.Browser.Browser, and that's OK! Email us at support@mvcatm.com if you have any problems. Or send us a tweet @@mvcatm.
 
-@{ var amounts = new List<decimal> { 100, 25.50m, -40, 275.99m }; }
-<ul>
-    @foreach (decimal amount in amounts)
-    {
-        <li>@formatAmount(amount)</li>
-        <text>plain text</text>
-        @:plain text
-}
-</ul>
-
-    @helper formatAmount(decimal amount)
-    {
-        var color = "green";
-        if (amount < 0)
-    {
-            color = "red";
+    @{ var amounts = new List<decimal> { 100, 25.50m, -40, 275.99m }; }
+    <ul>
+        @foreach (decimal amount in amounts)
+        {
+            <li>@formatAmount(amount)</li>
+            <text>plain text</text>
+            @:plain text
     }
-    <span style="color:@color">@String.Format("{0:c}", amount)</span>
-}
+    </ul>
+
+        @helper formatAmount(decimal amount)
+        {
+            var color = "green";
+            if (amount < 0)
+        {
+                color = "red";
+        }
+        <span style="color:@color">@String.Format("{0:c}", amount)</span>
+    }
+*@
