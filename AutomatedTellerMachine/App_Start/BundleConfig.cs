@@ -8,7 +8,7 @@ namespace AutomatedTellerMachine
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+            bundles.Add(new ScriptBundle("~/bundles/jquery", "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js").Include(
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -28,7 +28,8 @@ namespace AutomatedTellerMachine
                       "~/Content/site.css"));
 
             // Set EnableOptimizations to false for debugging
-            BundleTable.EnableOptimizations = false;
+            BundleTable.EnableOptimizations = true;
+            bundles.UseCdn = true;
         }
     }
 }
