@@ -15,17 +15,17 @@
         <p>
             Open an account with us.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Register</a></p>
+        <p>@Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-4">
         <h2>Log in</h2>
         <p>Access your existing account.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Log in</a></p>
+        <p>@Html.ActionLink("Log in", "Login", "Account", null, new { @class = "btn btn-default" })</p>
     </div>
 </div>
 
 @section scripts {
-    <script>var testing = true;</script>    
+    <script>var testing = true;</script>
 }
 
 @*
