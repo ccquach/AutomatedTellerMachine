@@ -26,6 +26,9 @@ namespace AutomatedTellerMachine
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // Set EnableOptimizations to false for debugging
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
