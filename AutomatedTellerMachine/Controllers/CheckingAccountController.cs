@@ -25,7 +25,7 @@ namespace AutomatedTellerMachine.Controllers
                 LastName = "Sullivan",
                 Balance = 500
             };
-            return View();
+            return View(checkingAccount);
         }
 
         // GET: CheckingAccount/Create
