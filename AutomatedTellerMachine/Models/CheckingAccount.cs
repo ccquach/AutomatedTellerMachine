@@ -12,7 +12,7 @@ namespace AutomatedTellerMachine.Models
 
         [Required]
         //[StringLength(maximumLength:10, MinimumLength = 6)]
-        [RegularExpression(@"\d{6, 10}")]
+        [RegularExpression(@"\d{6,10}", ErrorMessage = "Account # must be between 6 and 10 digits.")]
         [Display(Name = "Account #")]
         public string AccountNumber { get; set; }
 
