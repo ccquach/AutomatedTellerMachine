@@ -19,6 +19,12 @@ namespace AutomatedTellerMachine.Models
         [Display(Name = "Last name")]
         public string LastName { get; set; }
 
+        public string Name
+        {
+            get {
+                return String.Format("{0} {1}", this.FirstName, this.LastName);
+            }
+        }
 
         public decimal Balance { get; set; }
     }
