@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutomatedTellerMachine.Models;
 
 namespace AutomatedTellerMachine.Controllers
 {
@@ -17,6 +18,13 @@ namespace AutomatedTellerMachine.Controllers
         // GET: CheckingAccount/Details
         public ActionResult Details()
         {
+            var checkingAccount = new CheckingAccount
+            {
+                AccountNumber = "0000123456",
+                FirstName = "Michael",
+                LastName = "Sullivan",
+                Balance = 500
+            };
             return View();
         }
 
