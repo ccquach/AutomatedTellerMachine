@@ -10,12 +10,17 @@ namespace AutomatedTellerMachine.Models
     {
         public int Id { get; set; }
 
+        [Required]
+        //[StringLength(maximumLength:10, MinimumLength = 6)]
+        [RegularExpression(@"\d{6, 10}")]
         [Display(Name = "Account #")]
         public string AccountNumber { get; set; }
 
+        [Required]
         [Display(Name = "First name")]
         public string FirstName { get; set; }
 
+        [Required]
         [Display(Name = "Last name")]
         public string LastName { get; set; }
 
