@@ -14,8 +14,8 @@ namespace AutomatedTellerMachine.Controllers
             return View();
         }
 
-        // GET: CheckingAccount/Details/5
-        public ActionResult Details(int id)
+        // GET: CheckingAccount/Details
+        public ActionResult Details()
         {
             return View();
         }
