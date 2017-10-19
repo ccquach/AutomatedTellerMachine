@@ -26,6 +26,7 @@ namespace AutomatedTellerMachine.Models
             }
         }
 
+        [DataType(DataType.Currency)]
         public decimal Balance { get; set; }
     }
 }
