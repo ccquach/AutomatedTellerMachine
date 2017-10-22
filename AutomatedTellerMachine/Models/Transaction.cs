@@ -12,6 +12,7 @@ namespace AutomatedTellerMachine.Models
         public int Id { get; set; }
 
         [Required]
+        [DataType(DataType.Currency)]
         public decimal Amount { get; set; }
 
         public int CheckingAccountId {
