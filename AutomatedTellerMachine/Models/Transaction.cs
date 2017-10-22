@@ -13,7 +13,7 @@ namespace AutomatedTellerMachine.Models
 
         [Required]
         [DataType(DataType.Currency)]
-        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value greater than {1}")]
+        [Range(0.01, int.MaxValue, ErrorMessage = "Please enter a value greater than {1}")]
         public decimal Amount { get; set; }
 
         public int CheckingAccountId {
