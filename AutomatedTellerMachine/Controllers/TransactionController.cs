@@ -23,7 +23,7 @@ namespace AutomatedTellerMachine.Controllers
         // GET: Transaction/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Deposit");
         }
 
         // POST: Transaction/Create
