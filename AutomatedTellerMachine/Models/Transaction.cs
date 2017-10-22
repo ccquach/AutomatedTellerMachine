@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity;
 
 namespace AutomatedTellerMachine.Models
 {
@@ -13,6 +14,10 @@ namespace AutomatedTellerMachine.Models
         [Required]
         public decimal Amount { get; set; }
 
-        public int CheckingAccountId { get; set; }
+        public int CheckingAccountId {
+            get {
+                return Convert.ToInt32(HttpContext.Current.User.Identity.GetUserId());
+            }
+        }
     }
 }
