@@ -20,15 +20,15 @@ namespace AutomatedTellerMachine.Controllers
             return View();
         }
 
-        // GET: Transaction/Create
-        public ActionResult Create()
+        // GET: Transaction/Deposit
+        public ActionResult Deposit()
         {
-            return View("Deposit");
+            return View();
         }
 
-        // POST: Transaction/Create
+        // POST: Transaction/Deposit
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Deposit(FormCollection collection)
         {
             try
             {
