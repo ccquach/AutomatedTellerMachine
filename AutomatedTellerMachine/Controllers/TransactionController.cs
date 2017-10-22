@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace AutomatedTellerMachine.Controllers
 {
@@ -23,6 +24,10 @@ namespace AutomatedTellerMachine.Controllers
         // GET: Transaction/Deposit
         public ActionResult Deposit()
         {
+            if (System.Web.HttpContext.Current.User.Identity.GetUserId() == "")
+            {
+                return RedirectToAction("Login", "Account");
+            }
             return View();
         }
 
