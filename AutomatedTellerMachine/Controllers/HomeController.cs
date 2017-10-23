@@ -18,6 +18,7 @@ namespace AutomatedTellerMachine.Controllers
         {
             var userId = User.Identity.GetUserId();
             var checkingAccountId = db.CheckingAccounts.Where(c => c.ApplicationUserId == userId).First().Id;
+            ViewBag.CheckingAccountId = checkingAccountId;
             return View();
         }
 
