@@ -28,9 +28,9 @@ namespace AutomatedTellerMachine.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                db.Transactions.Add(transaction);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
