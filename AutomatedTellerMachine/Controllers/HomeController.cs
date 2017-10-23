@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutomatedTellerMachine.Filters;
+using Microsoft.AspNet.Identity;
 
 namespace AutomatedTellerMachine.Controllers
 {
@@ -12,6 +13,8 @@ namespace AutomatedTellerMachine.Controllers
         // GET: /home/index/
         public ActionResult Index()
         {
+            var userId = User.Identity.GetUserId();
+
             return View();
         }
 
