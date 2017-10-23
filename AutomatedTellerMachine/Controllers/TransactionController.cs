@@ -24,7 +24,7 @@ namespace AutomatedTellerMachine.Controllers
         // GET: Transaction/Deposit
         public ActionResult Deposit()
         {
-            if (System.Web.HttpContext.Current.User.Identity.GetUserId() == "")
+            if (System.Web.HttpContext.Current.User.Identity.GetUserId() == null)
             {
                 return RedirectToAction("Login", "Account");
             }
