@@ -13,7 +13,7 @@ namespace AutomatedTellerMachine.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Transaction/Deposit
-        public ActionResult Deposit()
+        public ActionResult Deposit(int checkingAccountId)
         {
             if (System.Web.HttpContext.Current.User.Identity.GetUserId() == null)
             {
