@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using AutomatedTellerMachine.Models;
 
 namespace AutomatedTellerMachine.Controllers
 {
@@ -21,7 +22,7 @@ namespace AutomatedTellerMachine.Controllers
 
         // POST: Transaction/Deposit
         [HttpPost]
-        public ActionResult Deposit(FormCollection collection)
+        public ActionResult Deposit(Transaction transaction)
         {
             try
             {
