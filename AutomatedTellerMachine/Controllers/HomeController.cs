@@ -14,6 +14,7 @@ namespace AutomatedTellerMachine.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: /home/index/
+        [Authorize]
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
