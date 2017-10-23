@@ -5,11 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using AutomatedTellerMachine.Filters;
 using Microsoft.AspNet.Identity;
+using AutomatedTellerMachine.Models;
 
 namespace AutomatedTellerMachine.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: /home/index/
         public ActionResult Index()
         {
