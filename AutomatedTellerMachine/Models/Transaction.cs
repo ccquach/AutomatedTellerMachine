@@ -17,10 +17,7 @@ namespace AutomatedTellerMachine.Models
         [RegularExpression(@"^\d*(\.\d{1,2})?$", ErrorMessage = "Enter an amount up to 2 decimal places")]
         public decimal Amount { get; set; }
 
-        public int CheckingAccountId {
-            get {
-                return Convert.ToInt32(HttpContext.Current.User.Identity.GetUserId());
-            }
-        }
+        [Required]
+        public int CheckingAccountId { get; set; }
     }
 }
