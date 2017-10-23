@@ -10,6 +10,8 @@ namespace AutomatedTellerMachine.Controllers
 {
     public class TransactionController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: Transaction/Deposit
         public ActionResult Deposit()
         {
