@@ -10,16 +10,12 @@ namespace AutomatedTellerMachine.Controllers
     public class HomeController : Controller
     {
         // GET: /home/index/
-        [MyLoggingFilter]
         public ActionResult Index()
         {
-            //throw new StackOverflowException();
-
             return View();
         }
 
         // GET: /home/about/
-        [ActionName("about-this-atm")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
