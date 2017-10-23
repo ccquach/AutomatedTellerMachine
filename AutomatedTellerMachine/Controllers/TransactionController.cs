@@ -7,6 +7,7 @@ using AutomatedTellerMachine.Models;
 
 namespace AutomatedTellerMachine.Controllers
 {
+    [Authorize]
     public class TransactionController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
