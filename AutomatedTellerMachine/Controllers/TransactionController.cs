@@ -28,9 +28,13 @@ namespace AutomatedTellerMachine.Controllers
         {
             try
             {
-                db.Transactions.Add(transaction);
-                db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                if (ModelState.IsValid)
+                {
+                    db.Transactions.Add(transaction);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+                return View();
             }
             catch
             {
