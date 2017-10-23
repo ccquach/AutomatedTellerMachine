@@ -17,7 +17,7 @@ namespace AutomatedTellerMachine.Controllers
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
-
+            var checkingAccountId = db.CheckingAccounts.Where(c => c.ApplicationUserId == userId).First().Id;
             return View();
         }
 
