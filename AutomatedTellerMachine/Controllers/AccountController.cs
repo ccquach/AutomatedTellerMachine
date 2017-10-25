@@ -378,6 +378,9 @@ namespace AutomatedTellerMachine.Controllers
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
+                        var service = new CheckingAccountService(HttpContext.GetOwinContext().Get<ApplicationDbContext>());
+                        service.CreateCheckingAccount("Facebook", "User", user.Id, 500);
+
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         return RedirectToLocal(returnUrl);
                     }
