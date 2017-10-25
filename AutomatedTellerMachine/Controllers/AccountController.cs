@@ -157,6 +157,7 @@ namespace AutomatedTellerMachine.Controllers
                 if (result.Succeeded)
                 {
                     var service = new CheckingAccountService(HttpContext.GetOwinContext().Get<ApplicationDbContext>());
+                    service.CreateCheckingAccount(model.FirstName, model.LastName, user.Id, 0);
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
