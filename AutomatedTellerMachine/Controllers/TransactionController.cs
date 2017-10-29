@@ -12,6 +12,16 @@ namespace AutomatedTellerMachine.Controllers
     {
         private IApplicationDbContext db;
 
+        public TransactionController()
+        {
+            db = new ApplicationDbContext();
+        }
+
+        public TransactionController(IApplicationDbContext dbContext)
+        {
+            db = dbContext;
+        }
+
         // GET: Transaction/Deposit
         public ActionResult Deposit(int checkingAccountId)
         {
