@@ -27,6 +27,11 @@ namespace AutomatedTellerMachine.Controllers
             return View(checkingAccount);
         }
 
+        public ActionResult DetailsForAdmin(int id)
+        {
+            return View(checkingAccount);
+        }
+
         // GET: CheckingAccount/List
         public ActionResult List()
         {
