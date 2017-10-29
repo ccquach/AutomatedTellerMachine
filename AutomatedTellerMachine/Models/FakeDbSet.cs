@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EntityExtensions
+namespace AutomatedTellerMachine.Models
 {
     public class FakeDbSet<T> : System.Data.Entity.IDbSet<T> where T : class
     {
