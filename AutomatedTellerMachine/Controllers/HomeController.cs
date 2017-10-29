@@ -57,6 +57,11 @@ namespace AutomatedTellerMachine.Controllers
             return View();
         }
 
+        public ActionResult Foo()
+        {
+            return View("About");
+        }
+
         [Route("serial")]
         public ActionResult Serial(string letterCase)
         {
