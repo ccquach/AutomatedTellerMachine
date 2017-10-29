@@ -33,6 +33,9 @@ namespace AutomatedTellerMachine.Migrations
 
                 var service = new CheckingAccountService(context);
                 service.CreateCheckingAccount("admin", "user", user.Id, 1000);
+
+                context.Roles.AddOrUpdate(t => t.Name, new IdentityRole { Name = "Admin" });
+                context.SaveChanges();
             }
 
             //  This method will be called after migrating to the latest version.
