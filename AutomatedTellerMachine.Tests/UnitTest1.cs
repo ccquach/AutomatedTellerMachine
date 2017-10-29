@@ -38,6 +38,7 @@ namespace AutomatedTellerMachine.Tests
                 Balance = 0
             };
             fakeDb.CheckingAccounts.Add(checkingAccount);
+            fakeDb.Transactions = new FakeDbSet<Transaction>();
         }
     }
 }
