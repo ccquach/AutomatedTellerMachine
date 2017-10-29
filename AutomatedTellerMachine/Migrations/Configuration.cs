@@ -28,8 +28,7 @@ namespace AutomatedTellerMachine.Migrations
                     UserName = "admin@mvcatm.com",
                     Email = "admin@mvcatm.com"
                 };
-
-
+                userManager.Create(user, "Password1!");
             }
 
             //  This method will be called after migrating to the latest version.
