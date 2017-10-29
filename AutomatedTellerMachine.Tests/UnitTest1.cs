@@ -13,6 +13,7 @@ namespace AutomatedTellerMachine.Tests
         {
             var homeController = new HomeController();
             var result = homeController.Foo() as ViewResult;
+            Assert.AreEqual("About", result.ViewName);
         }
     }
 }
