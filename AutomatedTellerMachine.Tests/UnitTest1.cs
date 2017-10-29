@@ -31,7 +31,13 @@ namespace AutomatedTellerMachine.Tests
             var fakeDb = new FakeApplicationDbContext();
             fakeDb.CheckingAccounts = new FakeDbSet<CheckingAccount>();
 
-
+            var checkingAccount = new CheckingAccount
+            {
+                Id = 1,
+                AccountNumber = "000123TEST",
+                Balance = 0
+            };
+            fakeDb.CheckingAccounts.Add(checkingAccount);
         }
     }
 }
