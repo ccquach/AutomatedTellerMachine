@@ -27,6 +27,12 @@ namespace AutomatedTellerMachine.Controllers
             return View(checkingAccount);
         }
 
+        // GET: CheckingAccount/List
+        public ActionResult List()
+        {
+            return View(db.CheckingAccounts.ToList());
+        }
+
         // GET: CheckingAccount/Create
         public ActionResult Create()
         {
