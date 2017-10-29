@@ -15,5 +15,11 @@ namespace AutomatedTellerMachine.Tests
             var result = homeController.Foo() as ViewResult;
             Assert.AreEqual("About", result.ViewName);
         }
+
+        [TestMethod]
+        public void ContactFormSaysThanks()
+        {
+
+        }
     }
 }
