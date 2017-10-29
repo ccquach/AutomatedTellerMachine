@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutomatedTellerMachine.Models;
+using Microsoft.AspNet.Identity;
 
 namespace AutomatedTellerMachine.Controllers
 {
@@ -21,6 +22,8 @@ namespace AutomatedTellerMachine.Controllers
         // GET: CheckingAccount/Details
         public ActionResult Details()
         {
+            var userId = User.Identity.GetUserId();
+
             var checkingAccount = new CheckingAccount
             {
                 AccountNumber = "0000123456",
