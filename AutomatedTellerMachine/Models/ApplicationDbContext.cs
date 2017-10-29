@@ -7,6 +7,12 @@ using System.Web;
 
 namespace AutomatedTellerMachine.Models
 {
+    public interface IApplicationDbContext
+    {
+        IDbSet<CheckingAccount> CheckingAccounts { get; set; }
+        IDbSet<Transaction> Transactions { get; set; }
+    }
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
