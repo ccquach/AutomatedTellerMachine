@@ -21,6 +21,17 @@ namespace AutomatedTellerMachine.Migrations
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new UserManager<ApplicationUser>(userStore);
 
+            if (!context.Users.Any(t => t.UserName == "admin@mvcatm.com"))
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = "admin@mvcatm.com",
+                    Email = "admin@mvcatm.com"
+                };
+
+
+            }
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
