@@ -29,6 +29,7 @@ namespace AutomatedTellerMachine.Controllers
 
         public ActionResult DetailsForAdmin(int id)
         {
+            var checkingAccount = db.CheckingAccounts.Find(id);
             return View(checkingAccount);
         }
 
