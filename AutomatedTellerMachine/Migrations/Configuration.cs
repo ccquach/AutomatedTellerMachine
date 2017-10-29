@@ -36,6 +36,8 @@ namespace AutomatedTellerMachine.Migrations
 
                 context.Roles.AddOrUpdate(t => t.Name, new IdentityRole { Name = "Admin" });
                 context.SaveChanges();
+
+                userManager.AddToRole(user.Id, "Admin");
             }
 
             //  This method will be called after migrating to the latest version.
