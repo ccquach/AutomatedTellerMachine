@@ -19,7 +19,9 @@ namespace AutomatedTellerMachine.Tests
         [TestMethod]
         public void ContactFormSaysThanks()
         {
-
+            var homeController = new HomeController();
+            var result = homeController.Contact("I love your bank.") as ViewResult;
+            Assert.AreEqual("Thanks!", result.ViewBag.TheMessage);
         }
     }
 }
