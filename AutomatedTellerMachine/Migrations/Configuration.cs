@@ -1,5 +1,8 @@
 namespace AutomatedTellerMachine.Migrations
 {
+    using AutomatedTellerMachine.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -15,6 +18,9 @@ namespace AutomatedTellerMachine.Migrations
 
         protected override void Seed(AutomatedTellerMachine.Models.ApplicationDbContext context)
         {
+            var userStore = new UserStore<ApplicationUser>(context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
