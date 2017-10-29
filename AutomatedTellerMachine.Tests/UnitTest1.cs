@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AutomatedTellerMachine.Controllers;
 
 namespace AutomatedTellerMachine.Tests
 {
@@ -9,6 +10,7 @@ namespace AutomatedTellerMachine.Tests
         [TestMethod]
         public void FooActionReturnsAboutView()
         {
+            var homeController = new HomeController();
         }
     }
 }
