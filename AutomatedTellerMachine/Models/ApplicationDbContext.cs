@@ -11,6 +11,8 @@ namespace AutomatedTellerMachine.Models
     {
         IDbSet<CheckingAccount> CheckingAccounts { get; set; }
         IDbSet<Transaction> Transactions { get; set; }
+
+        int SaveChanges();
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
