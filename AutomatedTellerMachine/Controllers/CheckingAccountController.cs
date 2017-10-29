@@ -23,14 +23,7 @@ namespace AutomatedTellerMachine.Controllers
         public ActionResult Details()
         {
             var userId = User.Identity.GetUserId();
-
-            var checkingAccount = new CheckingAccount
-            {
-                AccountNumber = "0000123456",
-                FirstName = "Michael",
-                LastName = "Sullivan",
-                Balance = 500
-            };
+            var checkingAccount = db.CheckingAccounts.Where(c => c.ApplicationUserId == userId).First();
             return View(checkingAccount);
         }
 
