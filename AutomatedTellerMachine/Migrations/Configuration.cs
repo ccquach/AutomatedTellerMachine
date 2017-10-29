@@ -1,6 +1,7 @@
 namespace AutomatedTellerMachine.Migrations
 {
     using AutomatedTellerMachine.Models;
+    using AutomatedTellerMachine.Services;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
@@ -29,6 +30,9 @@ namespace AutomatedTellerMachine.Migrations
                     Email = "admin@mvcatm.com"
                 };
                 userManager.Create(user, "Password1!");
+
+                var service = new CheckingAccountService(context);
+                service.CreateCheckingAccount("admin", "user", user.Id, 1000);
             }
 
             //  This method will be called after migrating to the latest version.
