@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutomatedTellerMachine.Models;
+using AutomatedTellerMachine.Services;
 
 namespace AutomatedTellerMachine.Controllers
 {
@@ -38,6 +39,10 @@ namespace AutomatedTellerMachine.Controllers
                 {
                     db.Transactions.Add(transaction);
                     db.SaveChanges();
+
+                    var service = new CheckingAccountService(db);
+
+
                     return RedirectToAction("Index", "Home");
                 }
                 return View();
