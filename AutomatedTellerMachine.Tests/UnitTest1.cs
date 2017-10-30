@@ -39,6 +39,7 @@ namespace AutomatedTellerMachine.Tests
             };
             fakeDb.CheckingAccounts.Add(checkingAccount);
             fakeDb.Transactions = new FakeDbSet<Transaction>();
+            var transactionController = new TransactionController(fakeDb);
         }
     }
 }
