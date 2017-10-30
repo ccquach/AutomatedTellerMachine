@@ -37,9 +37,11 @@ namespace AutomatedTellerMachine.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    // Add transaction to db
                     db.Transactions.Add(transaction);
                     db.SaveChanges();
 
+                    // Update checking account balance
                     var service = new CheckingAccountService(db);
                     service.UpdateBalance(transaction.CheckingAccountId);
 
