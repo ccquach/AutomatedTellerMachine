@@ -41,6 +41,7 @@ namespace AutomatedTellerMachine.Tests
             fakeDb.Transactions = new FakeDbSet<Transaction>();
             var transactionController = new TransactionController(fakeDb);
             transactionController.Deposit(new Transaction { CheckingAccountId = 1, Amount = 25 });
+            Assert.AreEqual(25, checkingAccount.Balance);
         }
     }
 }
