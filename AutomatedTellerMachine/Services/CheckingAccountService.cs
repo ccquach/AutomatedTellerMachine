@@ -32,7 +32,7 @@ namespace AutomatedTellerMachine.Services
 
         public void UpdateBalance(int checkingAccountId)
         {
-
+            var checkingAccount = db.CheckingAccounts.Where(c => c.Id == checkingAccountId).First();
         }
     }
 }
