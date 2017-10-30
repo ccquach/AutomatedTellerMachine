@@ -43,7 +43,6 @@ namespace AutomatedTellerMachine.Tests
 
             // ACT
             transactionController.Deposit(new Transaction { CheckingAccountId = 1, Amount = 25 });
-            checkingAccount.Balance = 25;
 
             // ASSERT
             Assert.AreEqual(25, checkingAccount.Balance);
