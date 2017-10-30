@@ -28,9 +28,9 @@ namespace AutomatedTellerMachine.Tests
         [TestMethod]
         public void BalanceIsCorrectAfterDeposit()
         {
+            // ARRANGE
             var fakeDb = new FakeApplicationDbContext();
             fakeDb.CheckingAccounts = new FakeDbSet<CheckingAccount>();
-
             var checkingAccount = new CheckingAccount
             {
                 Id = 1,
@@ -40,7 +40,11 @@ namespace AutomatedTellerMachine.Tests
             fakeDb.CheckingAccounts.Add(checkingAccount);
             fakeDb.Transactions = new FakeDbSet<Transaction>();
             var transactionController = new TransactionController(fakeDb);
+
+            // ACT
             transactionController.Deposit(new Transaction { CheckingAccountId = 1, Amount = 25 });
+
+            // ASSERT
             Assert.AreEqual(25, checkingAccount.Balance);
         }
     }
