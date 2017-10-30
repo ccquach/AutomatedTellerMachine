@@ -41,7 +41,7 @@ namespace AutomatedTellerMachine.Controllers
                     db.SaveChanges();
 
                     var service = new CheckingAccountService(db);
-
+                    service.UpdateBalance(transaction.CheckingAccountId);
 
                     return RedirectToAction("Index", "Home");
                 }
