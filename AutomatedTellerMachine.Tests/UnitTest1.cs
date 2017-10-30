@@ -40,6 +40,7 @@ namespace AutomatedTellerMachine.Tests
             fakeDb.CheckingAccounts.Add(checkingAccount);
             fakeDb.Transactions = new FakeDbSet<Transaction>();
             var transactionController = new TransactionController(fakeDb);
+            transactionController.Deposit(new Transaction { CheckingAccountId = 1, Amount = 25 });
         }
     }
 }
