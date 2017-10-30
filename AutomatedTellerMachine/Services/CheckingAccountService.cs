@@ -33,6 +33,7 @@ namespace AutomatedTellerMachine.Services
         public void UpdateBalance(int checkingAccountId)
         {
             var checkingAccount = db.CheckingAccounts.Where(c => c.Id == checkingAccountId).First();
+            checkingAccount.Balance = db.Transactions.Where(c => c.CheckingAccountId == checkingAccountId).Sum(c => c.Amount);
         }
     }
 }
