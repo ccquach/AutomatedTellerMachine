@@ -16,13 +16,14 @@
 </address>
 
 <div id="formSection">
-<h3>@ViewBag.TheMessage</h3>
-@using (Ajax.BeginForm(new AjaxOptions {
-    HttpMethod = "post",
-    InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "formSection" }))
-{
-    <textarea name="message"></textarea>
-    <input type="submit" value="Send" />
-}
+    <h3>@ViewBag.TheMessage</h3>
+    @using (Ajax.BeginForm(new AjaxOptions {
+            HttpMethod = "post",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "formSection"
+            }))
+    {
+        <textarea name="message"></textarea>
+        <input type="submit" value="Send" />
+    }
 </div>
