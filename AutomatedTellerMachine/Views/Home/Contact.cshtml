@@ -27,7 +27,8 @@
 {
     <script>
         $('#contactForm').submit(function () {
-
+            $.post('', { message: $('#message').val() })
+                
         });
     </script>
 }
