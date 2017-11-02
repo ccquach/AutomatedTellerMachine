@@ -31,7 +31,7 @@
             $("#progress").show();
             $.post('', { message: $('#message').val() })
                 .done(function (response) {
-                    $('#formSection').html(response);
+                    setTimeout(function () { $('#formSection').html(response); }, 2000);
                 })
         });
     </script>
