@@ -28,7 +28,9 @@
     <script>
         $('#contactForm').submit(function () {
             $.post('', { message: $('#message').val() })
-                
+                .done(function (response) {
+                    $('#formSection').html(response);
+                })
         });
     </script>
 }
