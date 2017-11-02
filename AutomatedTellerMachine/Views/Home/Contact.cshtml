@@ -28,6 +28,7 @@
 {
     <script>
         $('#contactForm').submit(function () {
+            $("#progress").show();
             $.post('', { message: $('#message').val() })
                 .done(function (response) {
                     $('#formSection').html(response);
