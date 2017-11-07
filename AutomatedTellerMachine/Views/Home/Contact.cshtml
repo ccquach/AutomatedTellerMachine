@@ -18,7 +18,7 @@
 <div id="formSection">
     <h3>@ViewBag.TheMessage</h3>
     <form method="post" id="contactForm">
-        <textarea name="message" id="message" maxlength="150"></textarea>
+        <textarea name="message" id="message" maxlength="150" data-bind="value:message"></textarea>
         <input type="submit" value="Send" />
     </form>
     <img src="~/Content/Images/progress.gif" id="progress" style="display:none;" />
