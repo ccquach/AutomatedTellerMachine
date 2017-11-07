@@ -31,6 +31,9 @@
         function ContactViewModel() {
             var self = this;
             self.message = ko.observable('');
+            self.charactersRemaining = ko.computed(function () {
+                return 150 - self.message().length;
+            })
         }
     </script>
 
