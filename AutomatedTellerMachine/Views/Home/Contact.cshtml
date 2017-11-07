@@ -20,6 +20,7 @@
     <form method="post" id="contactForm">
         <textarea name="message" id="message" maxlength="150" data-bind="value:message"></textarea>
         <input type="submit" value="Send" />
+        <span data-bind="text:charactersRemaining"></span>
     </form>
     <img src="~/Content/Images/progress.gif" id="progress" style="display:none;" />
 </div>
