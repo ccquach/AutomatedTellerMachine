@@ -28,6 +28,12 @@
 {
     <script src="~/Scripts/knockout-3.4.2.js"></script>
     <script>
+        function ContactViewModel() {
+            
+        }
+    </script>
+
+    <script>
         $('#contactForm').submit(function () {
             $("#progress").show();
             $.post('', { message: $('#message').val() })
