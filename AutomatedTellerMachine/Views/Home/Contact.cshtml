@@ -18,7 +18,7 @@
 <div id="formSection">
     <h3>@ViewBag.TheMessage</h3>
     <form method="post" id="contactForm">
-        <textarea name="message" id="message" maxlength="150" data-bind="value:message"></textarea>
+        <textarea name="message" id="message" maxlength="150" data-bind="value:message, valueUpdate:'input'"></textarea>
         <input type="submit" value="Send" />
         <span data-bind="text:charactersRemaining"></span>
     </form>
