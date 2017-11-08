@@ -44,7 +44,7 @@ namespace AutomatedTellerMachine.Controllers
         // GET: CheckingAccount/Statement
         public ActionResult Statement(int id)
         {
-
+            var checkingAccount = db.CheckingAccounts.Find(id);
         }
 
         // GET: CheckingAccount/Create
