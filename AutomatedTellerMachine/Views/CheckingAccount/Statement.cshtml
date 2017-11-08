@@ -48,5 +48,13 @@
             var endIndex = startIndex + self.pageSize;
             return self.transactions.slice(startIndex, endIndex);
         });
+
+        // methods
+        self.nextPage = function () {
+            self.currentPage(self.currentPage + 1);
+        };
+        self.previousPage = function () {
+            self.currentPage(self.currentPage - 1);
+        };
     }
 </script>
