@@ -8,6 +8,7 @@ namespace AutomatedTellerMachine.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Validation;
+    using System.Diagnostics;
     using System.Linq;
     using System.Text;
 
@@ -31,16 +32,17 @@ namespace AutomatedTellerMachine.Migrations
                     UserName = "admin@mvcatm.com",
                     Email = "admin@mvcatm.com"
                 };
-                userManager.Create(user, "Password1!");
+                IdentityResult result = userManager.Create(user, "Password1!");
 
                 var service = new CheckingAccountService(context);
                 service.CreateCheckingAccount("admin", "user", user.Id, 1000);
 
                 context.Roles.AddOrUpdate(t => t.Name, new IdentityRole { Name = "Admin" });
-                //context.SaveChanges();
-                SaveChanges(context);
+                context.SaveChanges();
+                //SaveChanges(context);
 
                 userManager.AddToRole(user.Id, "Admin");
+                context.SaveChanges();
             }
 
             context.Transactions.Add(new Transaction { Amount = 75, CheckingAccountId = 5 });
@@ -79,25 +81,37 @@ namespace AutomatedTellerMachine.Migrations
             {
                 context.SaveChanges();
             }
-            catch (DbEntityValidationException ex)
+            catch (DbEntityValidationException dbEx)
             {
-                StringBuilder sb = new StringBuilder();
-
-                foreach (var failure in ex.EntityValidationErrors)
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
                 {
-                    sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
-                    foreach (var error in failure.ValidationErrors)
+                    foreach (var validationError in validationErrors.ValidationErrors)
                     {
-                        sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
-                        sb.AppendLine();
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
                     }
                 }
-
-                throw new DbEntityValidationException(
-                    "Entity Validation Failed - errors follow:\n" +
-                    sb.ToString(), ex
-                ); // Add the original exception as the innerException
             }
+            //catch (DbEntityValidationException ex)
+            //{
+            //    StringBuilder sb = new StringBuilder();
+
+            //    foreach (var failure in ex.EntityValidationErrors)
+            //    {
+            //        sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
+            //        foreach (var error in failure.ValidationErrors)
+            //        {
+            //            sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
+            //            sb.AppendLine();
+            //        }
+            //    }
+
+            //    throw new DbEntityValidationException(
+            //        "Entity Validation Failed - errors follow:\n" +
+            //        sb.ToString(), ex
+            //    ); // Add the original exception as the innerException
+            //}
         }
     }
 }
