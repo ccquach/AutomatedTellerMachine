@@ -37,7 +37,8 @@ namespace AutomatedTellerMachine.Migrations
                 service.CreateCheckingAccount("admin", "user", user.Id, 1000);
 
                 context.Roles.AddOrUpdate(t => t.Name, new IdentityRole { Name = "Admin" });
-                context.SaveChanges();
+                //context.SaveChanges();
+                SaveChanges(context);
 
                 userManager.AddToRole(user.Id, "Admin");
             }
