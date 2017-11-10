@@ -14,9 +14,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
+        <tr data-bend="foreach:currentTransactions">
+            <td data-bind="text:Id"></td>
+            <td data-bind="text:formattedPrice(Amount)"></td>
         </tr>
     </tbody>
     <tfoot>
