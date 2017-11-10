@@ -31,32 +31,32 @@ namespace AutomatedTellerMachine.Models
         public IDbSet<Transaction> Transactions { get; set; }
 
         // Get details of EntityValidationErrors
-        public override int SaveChanges()
-        {
-            try
-            {
-                base.SaveChanges();
-                return 0;
-            }
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception exception = dbEx;
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format("{0}:{1}",
-                            validationErrors.Entry.Entity.ToString(),
-                            validationError.ErrorMessage);
+        //public override int SaveChanges()
+        //{
+        //    try
+        //    {
+        //        base.SaveChanges();
+        //        return 0;
+        //    }
+        //    catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+        //    {
+        //        Exception exception = dbEx;
+        //        foreach (var validationErrors in dbEx.EntityValidationErrors)
+        //        {
+        //            foreach (var validationError in validationErrors.ValidationErrors)
+        //            {
+        //                string message = string.Format("{0}:{1}",
+        //                    validationErrors.Entry.Entity.ToString(),
+        //                    validationError.ErrorMessage);
 
-                        //create a new exception inserting the current one
-                        //as the InnerException
-                        exception = new InvalidOperationException(message, exception);
-                    }
-                }
-                throw exception;
-            }
-        }
+        //                //create a new exception inserting the current one
+        //                //as the InnerException
+        //                exception = new InvalidOperationException(message, exception);
+        //            }
+        //        }
+        //        throw exception;
+        //    }
+        //}
     }
 
     public class FakeApplicationDbContext : IApplicationDbContext
