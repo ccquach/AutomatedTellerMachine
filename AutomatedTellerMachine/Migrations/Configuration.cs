@@ -39,7 +39,6 @@ namespace AutomatedTellerMachine.Migrations
 
                 context.Roles.AddOrUpdate(t => t.Name, new IdentityRole { Name = "Admin" });
                 context.SaveChanges();
-                //SaveChanges(context);
 
                 userManager.AddToRole(user.Id, "Admin");
                 context.SaveChanges();
@@ -73,45 +72,6 @@ namespace AutomatedTellerMachine.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-        }
-
-        private void SaveChanges(DbContext context)
-        {
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (DbEntityValidationException dbEx)
-            {
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        Trace.TraceInformation("Property: {0} Error: {1}",
-                                                validationError.PropertyName,
-                                                validationError.ErrorMessage);
-                    }
-                }
-            }
-            //catch (DbEntityValidationException ex)
-            //{
-            //    StringBuilder sb = new StringBuilder();
-
-            //    foreach (var failure in ex.EntityValidationErrors)
-            //    {
-            //        sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
-            //        foreach (var error in failure.ValidationErrors)
-            //        {
-            //            sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
-            //            sb.AppendLine();
-            //        }
-            //    }
-
-            //    throw new DbEntityValidationException(
-            //        "Entity Validation Failed - errors follow:\n" +
-            //        sb.ToString(), ex
-            //    ); // Add the original exception as the innerException
-            //}
         }
     }
 }
