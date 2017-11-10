@@ -13,8 +13,8 @@ namespace AutomatedTellerMachine.Models
 
         [Required]
         [DataType(DataType.Currency)]
-        [Range(0.01, int.MaxValue, ErrorMessage = "Please enter an amount greater than {1}")]
-        [RegularExpression(@"^\d*(\.\d{1,2})?$", ErrorMessage = "Enter an amount up to 2 decimal places")]
+        //[Range(0.01, int.MaxValue, ErrorMessage = "Please enter an amount greater than {1}")]
+        //[RegularExpression(@"^\d*(\.\d{1,2})?$", ErrorMessage = "Enter an amount up to 2 decimal places")]
         public decimal Amount { get; set; }
 
         [Required]
