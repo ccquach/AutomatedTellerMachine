@@ -45,6 +45,7 @@
             new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore }));
         self.pageSize = 5;
         self.currentPage = ko.observable(1);
+        self.lastPage = Math.ceil(self.transactions.length / self.pageSize);
         self.currentTransactions = ko.computed(function () {
             var startIndex = (self.currentPage() - 1) * self.pageSize;
             var endIndex = startIndex + self.pageSize;
