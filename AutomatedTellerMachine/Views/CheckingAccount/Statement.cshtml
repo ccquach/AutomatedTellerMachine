@@ -22,7 +22,7 @@
     <tfoot>
         <tr>
             <td colspan="2">
-                <span data-bind="click:previousPage" class="glyphicon glyphicon-circle-arrow-left" style="cursor:pointer;"></span>
+                <span data-bind="click:previousPage, visible:currentPage() > 1" class="glyphicon glyphicon-circle-arrow-left" style="cursor:pointer;"></span>
                 <span data-bind="text:currentPage"></span>
                 <span data-bind="click:nextPage" class="glyphicon glyphicon-circle-arrow-right" style="cursor:pointer;"></span>
             </td>
