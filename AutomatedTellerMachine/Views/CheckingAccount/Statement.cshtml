@@ -53,10 +53,10 @@
 
         // methods
         self.nextPage = function () {
-            self.currentPage(self.currentPage + 1);
+            self.currentPage(self.currentPage() + 1);
         };
         self.previousPage = function () {
-            self.currentPage(self.currentPage - 1);
+            self.currentPage(self.currentPage() - 1);
         };
     };
 
