@@ -60,5 +60,12 @@ namespace AutomatedTellerMachine.Controllers
         {
             return View();
         }
+
+        // POST: Transaction/Withdrawal
+        [HttpPost]
+        public ActionResult Withdrawal(Transaction transaction)
+        {
+
+        }
     }
 }
