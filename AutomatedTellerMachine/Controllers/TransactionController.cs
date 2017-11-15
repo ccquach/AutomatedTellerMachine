@@ -54,5 +54,11 @@ namespace AutomatedTellerMachine.Controllers
                 return View();
             }
         }
+
+        // GET: Transaction/Withdrawal
+        public ActionResult Withdrawal(int checkingAccountId)
+        {
+            return View();
+        }
     }
 }
