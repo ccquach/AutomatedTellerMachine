@@ -65,7 +65,19 @@ namespace AutomatedTellerMachine.Controllers
         [HttpPost]
         public ActionResult Withdrawal(Transaction transaction)
         {
+            if (ModelState.IsValid)
+            {
+                // Add transaction to db
+                db.Transactions.Add(transaction);
+                db.SaveChanges();
 
+                // Update checking account balance
+                var service = new CheckingAccountService(db);
+                service.UpdateBalance(transaction.CheckingAccountId);
+
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
         }
     }
 }
