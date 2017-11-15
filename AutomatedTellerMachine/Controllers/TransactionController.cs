@@ -33,26 +33,19 @@ namespace AutomatedTellerMachine.Controllers
         [HttpPost]
         public ActionResult Deposit(Transaction transaction)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    // Add transaction to db
-                    db.Transactions.Add(transaction);
-                    db.SaveChanges();
+                // Add transaction to db
+                db.Transactions.Add(transaction);
+                db.SaveChanges();
 
-                    // Update checking account balance
-                    var service = new CheckingAccountService(db);
-                    service.UpdateBalance(transaction.CheckingAccountId);
+                // Update checking account balance
+                var service = new CheckingAccountService(db);
+                service.UpdateBalance(transaction.CheckingAccountId);
 
-                    return RedirectToAction("Index", "Home");
-                }
-                return View();
+                return RedirectToAction("Index", "Home");
             }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
         // GET: Transaction/Withdrawal
