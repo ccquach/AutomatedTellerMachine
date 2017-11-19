@@ -100,7 +100,7 @@ namespace AutomatedTellerMachine.Controllers
             {
                 ViewBag.TransferConfirmationMessage = "Fund transfer unsuccesful!";
             }
-            return View("_TransferConfirmation");
+            return PartialView("_TransferConfirmation");
         }
     }
 }
