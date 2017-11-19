@@ -91,8 +91,16 @@ namespace AutomatedTellerMachine.Controllers
         public ActionResult Transfer(Transaction transaction)
         {
 
-
-            return View();
+            if (ModelState.IsValid)
+            {
+                ViewBag.TransferConfirmationMessage = "Fund transfer successful!";
+                
+            }
+            else
+            {
+                ViewBag.TransferConfirmationMessage = "Fund transfer unsuccesful!";
+            }
+            return View("_TransferConfirmation");
         }
     }
 }
