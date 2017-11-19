@@ -67,6 +67,7 @@ namespace AutomatedTellerMachine.Controllers
             if (ModelState.IsValid)
             {
                 // Add transaction to db
+                transaction.Amount = -transaction.Amount;
                 db.Transactions.Add(transaction);
                 db.SaveChanges();
 
