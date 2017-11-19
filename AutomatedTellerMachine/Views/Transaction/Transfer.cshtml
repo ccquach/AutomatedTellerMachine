@@ -39,6 +39,7 @@
                 </div>
             </div>
         </form>
+        <img src="~/Content/Images/progress.gif" id="progress" style="display:none;" />
     </div>
 }
 
@@ -50,7 +51,7 @@
 {
     <script>
         $('#transferForm').submit(function () {
-
+            $('#progress').show();
         });
     </script>
 }
