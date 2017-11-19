@@ -83,6 +83,7 @@ namespace AutomatedTellerMachine.Controllers
         // GET: Transaction/Transfer
         public ActionResult Transfer()
         {
+            ViewBag.TransferConfirmationMessage = "";
             return View();
         }
 
