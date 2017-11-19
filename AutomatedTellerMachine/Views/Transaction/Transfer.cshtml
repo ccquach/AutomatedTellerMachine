@@ -14,7 +14,7 @@
     <div class="form-horizontal">
         <h4>Transaction</h4>
         <hr />
-        <h3>@ViewBag.TransferValidationMessage</h3>
+        <h3>@ViewBag.TransferConfirmationMessage</h3>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
