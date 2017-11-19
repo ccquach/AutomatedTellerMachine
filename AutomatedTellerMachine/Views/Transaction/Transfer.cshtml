@@ -14,7 +14,7 @@
     <div class="form-horizontal">
         <h4>Transaction</h4>
         <hr />
-        <h3>@ViewBag.TransferConfirmationMessage</h3>
+        <h3 id="transferMessage">@ViewBag.TransferConfirmationMessage</h3>
         <form method="post" id="transferForm">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
@@ -52,6 +52,10 @@
     <script>
         $('#transferForm').submit(function () {
             $('#progress').show();
+            $.post('', { transaction: @model })
+                .done(function (response) {
+                    setTimeout(function () { $('#transferMessage').html(response); }, 2000);
+                })
         });
     </script>
 }
