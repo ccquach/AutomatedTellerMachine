@@ -61,7 +61,6 @@ namespace AutomatedTellerMachine.Controllers
             if (transaction.Amount > db.CheckingAccounts.Where(c => c.Id == transaction.CheckingAccountId).First().Balance)
             {
                 ModelState.AddModelError("Amount", "You have insufficient funds!");
-                return View();
             }
 
             if (ModelState.IsValid)
