@@ -79,5 +79,20 @@ namespace AutomatedTellerMachine.Controllers
             }
             return View();
         }
+
+        // GET: Transaction/Transfer
+        public ActionResult Transfer()
+        {
+            return View();
+        }
+
+        // POST: Transaction/Transfer
+        [HttpPost]
+        public ActionResult Transfer(Transaction transaction)
+        {
+
+
+            return View();
+        }
     }
 }
