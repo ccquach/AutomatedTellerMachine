@@ -58,7 +58,8 @@ namespace AutomatedTellerMachine.Controllers
         [HttpPost]
         public ActionResult Withdrawal(Transaction transaction)
         {
-            if (transaction.Amount > db.CheckingAccounts.Where(c => c.Id == transaction.CheckingAccountId).First().Balance)
+            var checkingAccount = db.CheckingAccounts.Find(transaction.CheckingAccountId);
+            if (transaction.Amount > checkingAccount.Balance)
             {
                 ModelState.AddModelError("Amount", "You have insufficient funds!");
             }
