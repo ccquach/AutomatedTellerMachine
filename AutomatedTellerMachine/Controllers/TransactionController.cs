@@ -90,7 +90,14 @@ namespace AutomatedTellerMachine.Controllers
         [HttpPost]
         public ActionResult Transfer(TransferViewModel transfer)
         {
-            
+            // Check for available funds
+            var sourceCheckingAccount = db.CheckingAccounts.Find(transfer.CheckingAccountId);
+            if (transfer.Amount > sourceCheckingAccount.Balance)
+            {
+                ModelState.AddModelError("Amount", "You have insufficient funds!");
+            }
+
+
         }
     }
 }
