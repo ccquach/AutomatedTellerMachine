@@ -116,6 +116,7 @@ namespace AutomatedTellerMachine.Controllers
 
                 return PartialView("_TransferSuccess", transfer);
             }
+            return PartialView("_TransferForm");
         }
     }
 }
