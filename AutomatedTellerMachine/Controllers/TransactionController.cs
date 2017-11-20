@@ -103,6 +103,19 @@ namespace AutomatedTellerMachine.Controllers
             {
                 ModelState.AddModelError("DestinationCheckingAccountNumber", "Invalid destination account number.");
             }
+
+            // Add debit/credit transactions and update account balances
+            if (ModelState.IsValid)
+            {
+                db.Transactions.Add(new Transaction { CheckingAccountId = transfer.CheckingAccountId, Amount = -transfer.Amount });
+                db.Transactions.Add(new Transaction { CheckingAccountId = destinationCheckingAccount.Id, Amount = transfer.Amount });
+
+                var service = new CheckingAccountService(db);
+                service.UpdateBalance(transfer.CheckingAccountId);
+                service.UpdateBalance(destinationCheckingAccount.Id);
+
+                return PartialView("_TransferSuccess", transfer);
+            }
         }
     }
 }
