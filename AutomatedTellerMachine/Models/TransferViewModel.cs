@@ -17,6 +17,6 @@ namespace AutomatedTellerMachine.Models
 
         [Required]
         [Display(Name = "To Account #")]
-        public int DestinationCheckingAccountId { get; set; }
+        public string DestinationCheckingAccountId { get; set; }
     }
 }
