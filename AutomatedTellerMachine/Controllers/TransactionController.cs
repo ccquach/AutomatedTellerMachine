@@ -83,7 +83,6 @@ namespace AutomatedTellerMachine.Controllers
         // GET: Transaction/Transfer
         public ActionResult Transfer(int checkingAccountId)
         {
-            ViewBag.TransferConfirmationMessage = "";
             return View();
         }
 
@@ -91,16 +90,7 @@ namespace AutomatedTellerMachine.Controllers
         [HttpPost]
         public ActionResult Transfer(TransferViewModel transfer)
         {
-            if (ModelState.IsValid)
-            {
-                ViewBag.TransferConfirmationMessage = "Fund transfer successful!";
-                
-            }
-            else
-            {
-                ViewBag.TransferConfirmationMessage = "Fund transfer unsuccesful!";
-            }
-            return PartialView("_TransferConfirmation");
+            
         }
     }
 }
