@@ -97,7 +97,12 @@ namespace AutomatedTellerMachine.Controllers
                 ModelState.AddModelError("Amount", "You have insufficient funds!");
             }
 
-
+            // Check for valid destination account
+            var destinationCheckingAccount = db.CheckingAccounts.Where(c => c.AccountNumber == transfer.DestinationCheckingAccountId).FirstOrDefault();
+            if (destinationCheckingAccount == null)
+            {
+                ModelState.AddModelError("DestinationCheckingAccountNumber", "Invalid destination account number.");
+            }
         }
     }
 }
