@@ -300,7 +300,6 @@
     <Content Include="Views\Transaction\Withdrawal.cshtml" />
     <Content Include="Views\Transaction\Transfer.cshtml" />
     <Content Include="Views\Transaction\_TransferSuccess.cshtml" />
-    <Content Include="Views\Transaction\_TransferForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
