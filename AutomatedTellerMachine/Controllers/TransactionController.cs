@@ -89,7 +89,7 @@ namespace AutomatedTellerMachine.Controllers
 
         // POST: Transaction/Transfer
         [HttpPost]
-        public ActionResult Transfer(Transaction transaction)
+        public ActionResult Transfer(TransferViewModel transfer)
         {
             if (ModelState.IsValid)
             {
