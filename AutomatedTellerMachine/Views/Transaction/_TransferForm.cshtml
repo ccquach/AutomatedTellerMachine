@@ -1,6 +1,6 @@
 ﻿@model AutomatedTellerMachine.Models.TransferViewModel
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Transfer", "Transaction", FormMethod.Post, new { @id = "transferForm" })) 
 {
     @Html.AntiForgeryToken()
     
