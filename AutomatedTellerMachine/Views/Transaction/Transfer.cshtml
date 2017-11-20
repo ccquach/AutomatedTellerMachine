@@ -10,14 +10,5 @@
 
 @section scripts 
 {
-    <script>
-        $('#transferForm').submit(function () {
-            $('#progress').show();
-            $.post('', { transaction: @Model })
-                .done(function (response) {
-                    setTimeout(function () { $('#transferMessage').html(response); }, 2000);
-                })
-            return false;
-        });
-    </script>
+    
 }
