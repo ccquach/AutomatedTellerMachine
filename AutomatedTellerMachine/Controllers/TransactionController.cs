@@ -101,7 +101,7 @@ namespace AutomatedTellerMachine.Controllers
             var destinationCheckingAccount = db.CheckingAccounts.Where(c => c.AccountNumber == transfer.DestinationCheckingAccountId).FirstOrDefault();
             if (destinationCheckingAccount == null)
             {
-                ModelState.AddModelError("DestinationCheckingAccountNumber", "Invalid destination account number.");
+                ModelState.AddModelError("DestinationCheckingAccountId", "Invalid destination account number.");
             }
 
             // Add debit/credit transactions and update account balances
