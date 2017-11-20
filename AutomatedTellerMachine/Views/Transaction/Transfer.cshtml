@@ -11,4 +11,20 @@
 @section scripts 
 {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        // Delegate submit event to document, since form might be replaced
+        $(document).on('submit', '#transferForm', function () {
+            var $thisForm = $(this);
+            // Manually trigger validation
+            if ($thisForm.valid()) {
+                $('#progress').show();
+                $.post('', $thisForm.serialize())
+                    .done(function (response) {
+                        $thisForm.replaceWith(response);
+                    })
+            }
+            return false;
+        });
+    </script>
 }
