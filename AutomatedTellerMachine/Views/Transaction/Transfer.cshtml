@@ -6,7 +6,7 @@
 
 <h2>Transfer</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Transfer", "Transaction", FormMethod.Post, new { @id = "transferForm" })) 
 {
     @Html.AntiForgeryToken()
     
