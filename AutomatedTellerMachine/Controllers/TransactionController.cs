@@ -97,6 +97,9 @@ namespace AutomatedTellerMachine.Controllers
 
             var service = new CheckingAccountService(db);
             service.UpdateBalance(checkingAccountId);
+
+            // Return to home page after transaction completed
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Transaction/Transfer
