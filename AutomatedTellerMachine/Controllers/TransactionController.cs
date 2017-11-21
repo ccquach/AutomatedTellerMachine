@@ -90,6 +90,13 @@ namespace AutomatedTellerMachine.Controllers
             {
                 return View("QuickCashInsufficientFunds");
             }
+
+            // Add quick cash withdrawal transaction and update balance
+            db.Transactions.Add(new Transaction { CheckingAccountId = checkingAccountId, Amount = -amount });
+            db.SaveChanges();
+
+            var service = new CheckingAccountService(db);
+            service.UpdateBalance(checkingAccountId);
         }
 
         // GET: Transaction/Transfer
