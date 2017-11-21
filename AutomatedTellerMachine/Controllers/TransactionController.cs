@@ -80,6 +80,12 @@ namespace AutomatedTellerMachine.Controllers
             return View();
         }
 
+        // GET: Transaction/QuickCash
+        public ActionResult QuickCash(int checkingAccountId, decimal amount)
+        {
+
+        }
+
         // GET: Transaction/Transfer
         public ActionResult Transfer(int checkingAccountId)
         {
