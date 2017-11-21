@@ -83,7 +83,13 @@ namespace AutomatedTellerMachine.Controllers
         // GET: Transaction/QuickCash
         public ActionResult QuickCash(int checkingAccountId, decimal amount)
         {
-
+            // Check for available funds
+            var sourceCheckingAccount = db.CheckingAccounts.Find(checkingAccountId);
+            var balance = sourceCheckingAccount.Balance;
+            if (balance < amount)
+            {
+                return View("QuickCashInsufficientFunds");
+            }
         }
 
         // GET: Transaction/Transfer
